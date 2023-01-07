@@ -11,7 +11,7 @@ class Launch: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.pushViewController(Dashboard(), animated: true)
+        self.navigationController?.pushViewController(MultiSection(), animated: true)
     }
 
 }

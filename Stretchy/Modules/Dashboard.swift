@@ -15,9 +15,6 @@ class Dashboard: UIViewController {
     lazy  var flowLayout : UICollectionViewFlowLayout = {
        let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
-        //flowLayout.minimumLineSpacing = padding
-        
-        flowLayout.scrollDirection = .vertical
         return flowLayout
     }()
     
@@ -33,15 +30,13 @@ class Dashboard: UIViewController {
         setCollection()
     }
     func setCollection(){
-        
         view.backgroundColor = .white
         collectionView.contentInsetAdjustmentBehavior  = .never
         collectionView.backgroundColor = .white
-        collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         view.addSubview(collectionView)
-        collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0), size: CGSize.init(width: view.frame.width, height: view.frame.height))
+        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets.init(top: 54, left: 0, bottom: 0, right: 0), size: CGSize.init(width: view.frame.width, height: view.frame.height))
          
         collectionView.reloadData()
     } 
@@ -58,7 +53,7 @@ extension Dashboard : UICollectionViewDataSource, UICollectionViewDelegate{
     }
     //Count List
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 18
+        return 4
     }
     //Cell Insert
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
